@@ -67,6 +67,9 @@ export interface StoryChapter {
   visualAlt: string
 }
 
+export const assetPath = (path: string) =>
+  `${import.meta.env.BASE_URL}${path.replace(/^\/+/, '')}`
+
 export const sectionThemes: Record<SectionThemeName, SectionTheme> = {
   night: {
     background: '#091224',
@@ -111,7 +114,7 @@ export const contactConfig: ContactConfig = {
   whatsapp: '',
   phone: '',
   address: 'Казань, точный адрес клуба будет опубликован ближе к открытию.',
-  mapEmbedUrl: '/media/kazan-map.png',
+  mapEmbedUrl: assetPath('/media/kazan-map.png'),
   mapsUrl: 'https://yandex.ru/maps/43/kazan/',
   formActionUrl: '',
 }
@@ -136,7 +139,7 @@ export const storyChapters: StoryChapter[] = [
     ctaLabel: 'Собрать формат аренды',
     metric: '01',
     metricLabel: 'вход в клуб',
-    visualImage: '/media/table-photo.jpg',
+    visualImage: assetPath('/media/table-photo.jpg'),
     visualAlt: 'Стол для настольного тенниса',
   },
   {
@@ -152,7 +155,7 @@ export const storyChapters: StoryChapter[] = [
     ctaLabel: 'Подобрать группу',
     metric: '02',
     metricLabel: 'системный рост',
-    visualImage: '/media/paddles-photo.jpg',
+    visualImage: assetPath('/media/paddles-photo.jpg'),
     visualAlt: 'Ракетки и мячи у сетки',
   },
   {
@@ -168,7 +171,7 @@ export const storyChapters: StoryChapter[] = [
     ctaLabel: 'Выбрать персональный формат',
     metric: '03',
     metricLabel: 'точный фокус',
-    visualImage: '/media/paddles-photo.jpg',
+    visualImage: assetPath('/media/paddles-photo.jpg'),
     visualAlt: 'Ракетки как образ персональной тренировки',
   },
   {
@@ -184,7 +187,7 @@ export const storyChapters: StoryChapter[] = [
     ctaLabel: 'Следить за запуском клуба',
     metric: '04',
     metricLabel: 'ритм сообщества',
-    visualImage: '/media/table-photo.jpg',
+    visualImage: assetPath('/media/table-photo.jpg'),
     visualAlt: 'Теннисный стол как сцена для турниров',
   },
 ]
@@ -194,7 +197,7 @@ export const clubContent = {
     name: 'Сфера',
     fullName: 'Клуб настольного тенниса «Сфера»',
     city: 'Казань',
-    mark: '/favicon.svg',
+    mark: assetPath('/favicon.svg'),
   },
   navigation: [
     { label: 'Направления', href: '#services' },

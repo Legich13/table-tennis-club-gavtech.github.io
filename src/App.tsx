@@ -11,6 +11,7 @@ import {
 } from 'react'
 import './App.css'
 import {
+  assetPath,
   clubContent,
   contactConfig,
   leadFormModel,
@@ -417,7 +418,7 @@ function App() {
               <div className="editorial-stage__band editorial-stage__band--red" aria-hidden="true" />
               <figure className="editorial-stage__figure">
                 <img
-                  src="/media/table-photo.jpg"
+                  src={assetPath('/media/table-photo.jpg')}
                   alt="Теннисный стол как центральный объект клубного пространства"
                 />
               </figure>
