@@ -61,6 +61,7 @@ body {
   grid-template-columns: auto 1fr auto;
   gap: 16px;
   align-items: center;
+  min-width: 0;
 }
 
 .site-header::before {
@@ -105,6 +106,7 @@ body {
 .brand-lockup__text {
   display: grid;
   gap: 2px;
+  min-width: 0;
 }
 
 .brand-lockup__text strong {
@@ -126,10 +128,15 @@ body {
 .site-nav {
   display: flex;
   justify-content: center;
-  gap: 8px;
+  gap: 6px;
+  min-width: 0;
+  max-width: 100%;
+  flex-wrap: nowrap;
   overflow-x: auto;
-  padding: 0 10px;
+  overflow-y: hidden;
+  padding: 0 6px;
   scrollbar-width: none;
+  scroll-padding-inline: 16px;
 }
 
 .site-nav::-webkit-scrollbar {
@@ -157,11 +164,19 @@ body {
   display: inline-flex;
   align-items: center;
   min-height: 44px;
-  padding: 0 14px;
+  padding: 0 12px;
   border-radius: 999px;
+  border: 1px solid transparent;
   color: rgba(244, 236, 223, 0.66);
   white-space: nowrap;
-  font-size: 0.94rem;
+  font-size: 0.91rem;
+  line-height: 1;
+}
+
+.site-nav a[data-link-type='page'] {
+  background: rgba(57, 174, 254, 0.08);
+  border-color: rgba(57, 174, 254, 0.22);
+  color: rgba(244, 236, 223, 0.92);
 }
 
 .site-nav a.is-active,
@@ -169,6 +184,12 @@ body {
 .site-nav a:focus-visible {
   background: rgba(255, 255, 255, 0.08);
   color: var(--cream-100);
+}
+
+.site-nav a[data-link-type='page']:hover,
+.site-nav a[data-link-type='page']:focus-visible {
+  background: rgba(57, 174, 254, 0.16);
+  border-color: rgba(57, 174, 254, 0.34);
 }
 
 .header-cta {
@@ -184,6 +205,41 @@ body {
   color: #fff7ef;
   box-shadow: 0 14px 30px rgba(229, 58, 68, 0.32);
   font-weight: 700;
+}
+
+@media (max-width: 1180px) {
+  .site-header {
+    grid-template-columns: auto 1fr;
+    gap: 12px;
+  }
+
+  .header-cta {
+    display: none;
+  }
+
+  .brand-lockup {
+    gap: 12px;
+    padding-right: 6px;
+  }
+
+  .brand-lockup__text strong {
+    font-size: 0.98rem;
+  }
+
+  .brand-lockup__text small {
+    display: none;
+  }
+
+  .site-nav {
+    gap: 4px;
+    justify-content: flex-start;
+    padding: 0 12px 0 0;
+  }
+
+  .site-nav a {
+    padding: 0 10px;
+    font-size: 0.86rem;
+  }
 }
 
 .button {
@@ -1895,6 +1951,17 @@ body {
 
   .brand-lockup__text small {
     font-size: 0.72rem;
+  }
+
+  .site-nav {
+    gap: 5px;
+    padding: 0 12px 12px;
+  }
+
+  .site-nav a {
+    min-height: 40px;
+    padding: 0 11px;
+    font-size: 0.86rem;
   }
 
   .hero__actions,

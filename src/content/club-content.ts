@@ -51,6 +51,12 @@ export interface HeroScene {
   ribbonFacts: HeroRibbonFact[]
 }
 
+export interface NavigationItem {
+  type: 'section' | 'page'
+  label: string
+  href: string
+}
+
 export interface StoryChapter {
   id: string
   title: string
@@ -67,8 +73,10 @@ export interface StoryChapter {
   visualAlt: string
 }
 
-export const assetPath = (path: string) =>
+export const sitePath = (path: string) =>
   `${import.meta.env.BASE_URL}${path.replace(/^\/+/, '')}`
+
+export const assetPath = sitePath
 
 export const sectionThemes: Record<SectionThemeName, SectionTheme> = {
   night: {
@@ -200,13 +208,14 @@ export const clubContent = {
     mark: assetPath('/favicon.svg'),
   },
   navigation: [
-    { label: 'Направления', href: '#services' },
-    { label: 'Уровень клуба', href: '#level' },
-    { label: 'Ритм клуба', href: '#community' },
-    { label: 'Локация', href: '#location' },
-    { label: 'FAQ', href: '#faq' },
-    { label: 'Контакты', href: '#contacts' },
-  ],
+    { type: 'section', label: 'Направления', href: '#services' },
+    { type: 'page', label: 'IT', href: sitePath('/it-offer/') },
+    { type: 'section', label: 'Уровень клуба', href: '#level' },
+    { type: 'section', label: 'Ритм клуба', href: '#community' },
+    { type: 'section', label: 'Локация', href: '#location' },
+    { type: 'section', label: 'FAQ', href: '#faq' },
+    { type: 'section', label: 'Контакты', href: '#contacts' },
+  ] satisfies NavigationItem[],
   heroScene: {
     status: 'Скоро открытие',
     city: 'Казань',

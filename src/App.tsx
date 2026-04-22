@@ -21,7 +21,9 @@ import {
 } from '@/content/club-content'
 import { usePrefersReducedMotion } from '@/hooks/use-prefers-reduced-motion'
 
-const sectionIds = clubContent.navigation.map((item) => item.href.replace('#', ''))
+const sectionIds = clubContent.navigation
+  .filter((item) => item.type === 'section')
+  .map((item) => item.href.replace('#', ''))
 
 function App() {
   const prefersReducedMotion = usePrefersReducedMotion()
@@ -261,16 +263,18 @@ function App() {
           </span>
         </a>
 
-        <nav className="site-nav" aria-label="Разделы страницы">
+        <nav className="site-nav" aria-label="Навигация клуба">
           {clubContent.navigation.map((item) => {
-            const targetId = item.href.replace('#', '')
+            const targetId = item.type === 'section' ? item.href.replace('#', '') : ''
+            const isActive = item.type === 'section' && targetId === activeSection
 
             return (
               <a
-                key={item.href}
+                key={`${item.type}:${item.href}`}
                 href={item.href}
-                className={targetId === activeSection ? 'is-active' : ''}
-                aria-current={targetId === activeSection ? 'location' : undefined}
+                data-link-type={item.type}
+                className={isActive ? 'is-active' : ''}
+                aria-current={isActive ? 'location' : undefined}
               >
                 {item.label}
               </a>

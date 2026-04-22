@@ -1,0 +1,1286 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>IT‑предложение для клуба настольного тенниса «Сфера»</title>
+  <meta name="description" content="HTML‑презентация коммерческого предложения по созданию сайта, CRM, онлайн‑записи и оплат для клуба настольного тенниса «Сфера»." />
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600&display=swap');
+
+    :root{
+      --bg:#040a14;
+      --bg2:#081426;
+      --card:rgba(255,250,242,.08);
+      --card2:rgba(255,255,255,.05);
+      --stroke:rgba(255,255,255,.12);
+      --stroke2:rgba(57,174,254,.28);
+      --text:#f4ecdf;
+      --muted:rgba(244,236,223,.66);
+      --soft:#eadfce;
+      --accent:#e53a44;
+      --accent2:#39aefe;
+      --accent3:#ffd979;
+      --danger:#ff8f93;
+      --shadow:0 28px 70px rgba(0,0,0,.42);
+      --radius:30px;
+      --radius2:18px;
+      --max:1180px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(circle at 14% 14%, rgba(57,174,254,.2), transparent 28%),
+        radial-gradient(circle at 88% 10%, rgba(229,58,68,.18), transparent 26%),
+        radial-gradient(circle at 65% 88%, rgba(255,217,121,.12), transparent 30%),
+        linear-gradient(135deg, var(--bg) 0%, #07111f 45%, #142646 100%);
+      overflow-x:hidden;
+    }
+    body:before{
+      content:"";
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      background-image:
+        linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
+      background-size:52px 52px;
+      mask-image:radial-gradient(circle at center, #000 0%, transparent 78%);
+      z-index:-1;
+    }
+    a{color:inherit}
+    .topbar{
+      position:fixed;
+      top:0; left:0; right:0;
+      z-index:50;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      padding:14px 22px;
+      background:rgba(8,20,38,.76);
+      backdrop-filter:blur(18px);
+      border-bottom:1px solid rgba(255,255,255,.09);
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      min-width:170px;
+      text-decoration:none;
+    }
+    .brand-mark{
+      width:38px;
+      height:38px;
+      border-radius:12px;
+      position:relative;
+      display:grid;
+      place-items:center;
+      box-shadow:0 12px 28px rgba(0,0,0,.24);
+      overflow:hidden;
+    }
+    .brand-mark img{
+      width:30px;
+      height:30px;
+      object-fit:contain;
+    }
+    .brand-mark:after{
+      display:none;
+    }
+    .brand b{font-size:15px; letter-spacing:.02em}
+    .brand span{display:block; font-size:12px; color:var(--muted); margin-top:1px}
+    .nav{
+      display:flex;
+      gap:6px;
+      justify-content:center;
+      flex-wrap:wrap;
+    }
+    .nav a{
+      text-decoration:none;
+      font-size:12px;
+      color:rgba(244,255,249,.78);
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid transparent;
+    }
+    .nav a:hover,.nav a.active{
+      color:var(--text);
+      background:rgba(255,255,255,.08);
+      border-color:rgba(255,255,255,.12);
+    }
+    .controls{display:flex; align-items:center; gap:8px; min-width:150px; justify-content:flex-end}
+    .back-home{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:38px;
+      padding:0 14px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.07);
+      color:var(--text);
+      text-decoration:none;
+      white-space:nowrap;
+      font-size:12px;
+      font-weight:800;
+      letter-spacing:.02em;
+      transition:transform .18s ease, background .18s ease, border .18s ease;
+    }
+    .back-home:hover{
+      transform:translateY(-1px);
+      background:rgba(255,255,255,.12);
+      border-color:rgba(57,174,254,.28);
+    }
+    .icon-btn{
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.07);
+      color:var(--text);
+      width:38px;
+      height:38px;
+      border-radius:14px;
+      cursor:pointer;
+      font-size:18px;
+      transition:transform .18s ease, background .18s ease, border .18s ease;
+    }
+    .icon-btn:hover{transform:translateY(-1px); background:rgba(255,255,255,.12); border-color:rgba(57,174,254,.28)}
+    .progress-wrap{
+      position:fixed;
+      top:68px; left:0; right:0;
+      height:3px;
+      background:rgba(255,255,255,.05);
+      z-index:48;
+    }
+    .progress{height:100%; width:0%; background:linear-gradient(90deg, var(--accent), var(--accent2), var(--accent3)); transition:width .14s ease}
+    .deck{position:relative}
+    .slide{
+      min-height:auto;
+      display:flex;
+      align-items:flex-start;
+      padding:88px 24px 40px;
+      scroll-margin-top:84px;
+      position:relative;
+    }
+    #cover.slide{
+      min-height:100vh;
+      align-items:center;
+      padding:110px 24px 64px;
+    }
+    .slide-inner{
+      width:100%;
+      max-width:var(--max);
+      margin:0 auto;
+    }
+    .kicker{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      color:var(--accent);
+      background:rgba(229,58,68,.1);
+      border:1px solid rgba(229,58,68,.2);
+      padding:8px 12px;
+      border-radius:999px;
+      font-size:13px;
+      font-weight:700;
+      letter-spacing:.02em;
+      margin-bottom:18px;
+    }
+    .kicker:before{
+      content:"";
+      width:7px;
+      height:7px;
+      border-radius:50%;
+      background:var(--accent);
+      box-shadow:0 0 0 5px rgba(229,58,68,.12);
+    }
+    h1,h2,h3,p{margin:0}
+    h1{
+      font-size:clamp(42px, 8vw, 104px);
+      line-height:.92;
+      letter-spacing:-.075em;
+      max-width:1050px;
+    }
+    h2{
+      font-size:clamp(32px, 5vw, 68px);
+      line-height:.96;
+      letter-spacing:-.055em;
+      max-width:1000px;
+    }
+    h3{
+      font-size:clamp(20px, 2vw, 27px);
+      letter-spacing:-.025em;
+      line-height:1.08;
+    }
+    .lead{
+      margin-top:24px;
+      font-size:clamp(18px, 2.2vw, 26px);
+      line-height:1.42;
+      color:var(--soft);
+      max-width:850px;
+    }
+    .sublead{
+      margin-top:16px;
+      color:var(--muted);
+      font-size:16px;
+      line-height:1.65;
+      max-width:760px;
+    }
+    .grid{display:grid; gap:18px}
+    .grid.two{grid-template-columns:repeat(2, minmax(0,1fr))}
+    .grid.three{grid-template-columns:repeat(3, minmax(0,1fr))}
+    .grid.four{grid-template-columns:repeat(4, minmax(0,1fr))}
+    .hero-layout{
+      display:grid;
+      grid-template-columns:minmax(0,1.08fr) minmax(330px,.92fr);
+      gap:32px;
+      align-items:center;
+    }
+    .card{
+      background:linear-gradient(180deg, rgba(255,255,255,.1), rgba(255,255,255,.045));
+      border:1px solid var(--stroke);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:26px;
+      position:relative;
+      overflow:hidden;
+    }
+    .card:before{
+      content:"";
+      position:absolute;
+      inset:-1px;
+      background:
+        radial-gradient(circle at 18% 0%, rgba(57,174,254,.16), transparent 35%),
+        radial-gradient(circle at 82% 18%, rgba(229,58,68,.12), transparent 28%);
+      pointer-events:none;
+    }
+    .card > *{position:relative}
+    .mini-card{
+      background:rgba(255,255,255,.065);
+      border:1px solid rgba(255,255,255,.12);
+      border-radius:22px;
+      padding:20px;
+      min-height:145px;
+    }
+    .mini-card h3{margin-bottom:10px}
+    .mini-card p,.mini-card li{color:var(--muted); line-height:1.55; font-size:15px}
+    .mini-card strong{color:var(--text)}
+    .pill-row{display:flex; gap:10px; flex-wrap:wrap; margin-top:24px}
+    .pill{
+      padding:10px 14px;
+      border-radius:999px;
+      background:rgba(255,255,255,.08);
+      border:1px solid rgba(255,255,255,.12);
+      color:rgba(244,255,249,.88);
+      font-size:14px;
+    }
+    .cta-row{display:flex; gap:12px; flex-wrap:wrap; margin-top:30px}
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      min-height:48px;
+      padding:13px 18px;
+      border-radius:16px;
+      border:1px solid rgba(255,255,255,.16);
+      background:rgba(255,255,255,.08);
+      text-decoration:none;
+      font-weight:800;
+      color:var(--text);
+      transition:transform .18s ease, border .18s ease, background .18s ease;
+    }
+    .btn.primary{
+      background:linear-gradient(135deg, var(--accent), #ff6e4b);
+      color:#fff8f2;
+      border-color:transparent;
+      box-shadow:0 20px 40px rgba(229,58,68,.22);
+    }
+    .btn:hover{transform:translateY(-2px)}
+    .metric-strip{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:12px;
+      margin-top:22px;
+    }
+    .metric{
+      padding:18px;
+      border-radius:20px;
+      border:1px solid rgba(255,255,255,.11);
+      background:rgba(255,255,255,.055);
+    }
+    .metric b{display:block; font-size:24px; color:var(--accent); letter-spacing:-.04em}
+    .metric span{display:block; margin-top:5px; font-size:13px; line-height:1.35; color:var(--muted)}
+    .phone{
+      width:min(360px,100%);
+      margin:0 auto;
+      border-radius:42px;
+      background:linear-gradient(180deg,#0b1730,#081426);
+      border:1px solid rgba(255,255,255,.20);
+      padding:16px;
+      box-shadow:0 40px 80px rgba(0,0,0,.46), inset 0 0 0 1px rgba(255,255,255,.07);
+    }
+    .phone-screen{
+      border-radius:30px;
+      background:
+        radial-gradient(circle at 85% 0%, rgba(57,174,254,.18), transparent 34%),
+        radial-gradient(circle at 20% 20%, rgba(229,58,68,.12), transparent 26%),
+        #07111f;
+      min-height:560px;
+      padding:18px;
+      border:1px solid rgba(255,255,255,.08);
+    }
+    .phone-top{display:flex; justify-content:space-between; align-items:center; color:var(--muted); font-size:12px; margin-bottom:18px}
+    .app-logo{display:flex; align-items:center; gap:9px; font-weight:900; letter-spacing:-.02em}
+    .dot-logo{
+      width:28px;
+      height:28px;
+      border-radius:8px;
+      position:relative;
+      flex:none;
+      box-shadow:0 10px 18px rgba(0,0,0,.22);
+    }
+    .dot-logo img{
+      display:block;
+      width:28px;
+      height:28px;
+      object-fit:contain;
+    }
+    .dot-logo:after{display:none}
+    .slot{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:14px;
+      margin-top:10px;
+      padding:13px;
+      border-radius:16px;
+      background:rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.10);
+    }
+    .slot.active{background:rgba(57,174,254,.16); border-color:rgba(57,174,254,.34)}
+    .slot span{color:var(--muted); font-size:13px}
+    .slot b{font-size:15px}
+    .tiny-btn{padding:8px 10px;border-radius:11px;background:rgba(229,58,68,.18);color:var(--text);font-size:12px;font-weight:800}
+    .mock-panel{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:14px;
+      margin-top:20px;
+    }
+    .mock-line{height:13px;border-radius:999px;background:rgba(255,255,255,.13); overflow:hidden}
+    .mock-line i{display:block;height:100%;border-radius:999px;background:linear-gradient(90deg,var(--accent),var(--accent2)); opacity:.9}
+    .module-list{display:grid; gap:12px; margin-top:24px}
+    .module{
+      display:grid;
+      grid-template-columns:auto 1fr;
+      gap:13px;
+      align-items:start;
+      padding:17px;
+      border-radius:20px;
+      background:rgba(255,255,255,.055);
+      border:1px solid rgba(255,255,255,.10);
+    }
+    .num{
+      width:34px; height:34px;
+      border-radius:13px;
+      display:grid; place-items:center;
+      background:rgba(229,58,68,.14);
+      color:var(--text);
+      font-weight:900;
+    }
+    .module p{color:var(--muted); margin-top:4px; line-height:1.52; font-size:15px}
+    .split{
+      display:grid;
+      grid-template-columns:minmax(0,.88fr) minmax(340px,1.12fr);
+      gap:28px;
+      align-items:start;
+      margin-top:28px;
+    }
+    .check-list{list-style:none; padding:0; margin:0; display:grid; gap:12px}
+    .check-list li{
+      position:relative;
+      padding-left:34px;
+      color:var(--muted);
+      line-height:1.55;
+    }
+    .check-list li:before{
+      content:"✓";
+      position:absolute;
+      left:0; top:0;
+      width:22px; height:22px;
+      display:grid; place-items:center;
+      border-radius:8px;
+      background:rgba(229,58,68,.14);
+      color:var(--text);
+      font-weight:900;
+      font-size:13px;
+    }
+    .check-list strong{color:var(--text)}
+    .timeline{display:grid; gap:14px; margin-top:28px}
+    .step{
+      display:grid;
+      grid-template-columns:72px 1fr;
+      gap:16px;
+      align-items:start;
+      padding:20px;
+      border-radius:24px;
+      background:rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.11);
+    }
+    .step-index{
+      width:58px; height:58px;
+      border-radius:20px;
+      display:grid; place-items:center;
+      background:linear-gradient(135deg, rgba(229,58,68,.22), rgba(57,174,254,.14));
+      color:var(--text);
+      font-weight:950;
+      font-size:20px;
+    }
+    .step p{color:var(--muted); line-height:1.55; margin-top:5px}
+    .price-card{
+      min-height:100%;
+      display:flex;
+      flex-direction:column;
+      gap:18px;
+    }
+    .price-card .tag{
+      align-self:flex-start;
+      border-radius:999px;
+      padding:7px 11px;
+      background:rgba(255,217,121,.12);
+      border:1px solid rgba(255,217,121,.2);
+      color:var(--accent3);
+      font-size:12px;
+      font-weight:800;
+    }
+    .big-percent{font-size:clamp(36px,4.6vw,64px);letter-spacing:-.05em;line-height:.95;color:var(--accent)}
+    .note{
+      margin-top:22px;
+      padding:16px 18px;
+      border-radius:20px;
+      background:rgba(255,217,121,.08);
+      border:1px solid rgba(255,217,121,.18);
+      color:#fff1c4;
+      line-height:1.5;
+    }
+    .table{
+      width:100%;
+      border-collapse:separate;
+      border-spacing:0 10px;
+      margin-top:26px;
+    }
+    .table th{
+      text-align:left;
+      color:var(--muted);
+      font-size:13px;
+      font-weight:700;
+      padding:0 16px 4px;
+    }
+    .table td{
+      padding:16px;
+      background:rgba(255,255,255,.06);
+      border-top:1px solid rgba(255,255,255,.10);
+      border-bottom:1px solid rgba(255,255,255,.10);
+      color:var(--muted);
+      line-height:1.45;
+      vertical-align:top;
+    }
+    .table td:first-child{border-left:1px solid rgba(255,255,255,.10); border-radius:18px 0 0 18px; color:var(--text); font-weight:800}
+    .table td:last-child{border-right:1px solid rgba(255,255,255,.10); border-radius:0 18px 18px 0}
+    .feature-cloud{display:flex; flex-wrap:wrap; gap:10px; margin-top:26px}
+    .feature-cloud span{
+      display:inline-flex;
+      padding:10px 12px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(255,255,255,.06);
+      color:rgba(244,255,249,.82);
+      font-size:14px;
+    }
+    .offer-world{
+      width:100%;
+      aspect-ratio:1/1;
+      max-width:520px;
+      margin:0 auto;
+      position:relative;
+      overflow:hidden;
+      border-radius:40px;
+      background:
+        radial-gradient(circle at 18% 84%, rgba(229,58,68,.12), transparent 20%),
+        radial-gradient(circle at 82% 10%, rgba(57,174,254,.12), transparent 24%),
+        linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01));
+    }
+    .offer-world__halo,
+    .offer-world__court-plane,
+    .offer-world__court-grid,
+    .offer-world__net,
+    .offer-world__arc,
+    .offer-world__paddle,
+    .offer-world__ball,
+    .offer-world__seal{
+      position:absolute;
+    }
+    .offer-world__halo{
+      border-radius:50%;
+      filter:blur(4px);
+    }
+    .offer-world__halo--blue{
+      inset:10% 7% auto auto;
+      width:34%;
+      aspect-ratio:1/1;
+      background:radial-gradient(circle, rgba(57,174,254,.48), rgba(57,174,254,.08) 60%, transparent 70%);
+    }
+    .offer-world__halo--red{
+      inset:auto auto 12% 0;
+      width:32%;
+      aspect-ratio:1/1;
+      background:radial-gradient(circle, rgba(229,58,68,.42), rgba(229,58,68,.08) 60%, transparent 72%);
+    }
+    .offer-world__court-plane{
+      inset:8% 8% 10% 10%;
+      border-radius:42px;
+      background:
+        linear-gradient(160deg, rgba(20,38,70,.95), rgba(9,22,41,.92)),
+        linear-gradient(90deg, rgba(255,255,255,.09) 1px, transparent 1px),
+        linear-gradient(rgba(255,255,255,.09) 1px, transparent 1px);
+      background-size:auto, 18% 18%, 18% 18%;
+      border:1px solid rgba(255,255,255,.08);
+      box-shadow:0 28px 72px rgba(0,0,0,.34);
+      clip-path:polygon(14% 6%, 92% 0%, 100% 36%, 80% 100%, 10% 92%, 0% 34%);
+    }
+    .offer-world__court-grid{
+      inset:12% 13% 16% 18%;
+      border-radius:34px;
+      border:1px solid rgba(255,255,255,.12);
+      clip-path:polygon(18% 6%, 92% 0%, 100% 38%, 76% 100%, 12% 92%, 0% 34%);
+    }
+    .offer-world__court-grid:before,
+    .offer-world__court-grid:after{
+      content:"";
+      position:absolute;
+      inset:0;
+      border-radius:inherit;
+    }
+    .offer-world__court-grid:before{
+      border-top:2px solid rgba(255,255,255,.15);
+      border-bottom:2px solid rgba(255,255,255,.15);
+    }
+    .offer-world__court-grid:after{
+      inset:49% 0 auto;
+      height:2px;
+      background:rgba(255,255,255,.18);
+    }
+    .offer-world__net{
+      inset:47.2% 20% auto 24%;
+      height:18px;
+      border-top:2px solid rgba(244,236,223,.8);
+      border-bottom:1px solid rgba(244,236,223,.18);
+      background:
+        linear-gradient(90deg, rgba(255,255,255,.12) 1px, transparent 1px),
+        linear-gradient(rgba(255,255,255,.12) 1px, transparent 1px);
+      background-size:18px 18px;
+    }
+    .offer-world__arc{
+      border-radius:999px;
+      border:2px solid transparent;
+      opacity:.95;
+    }
+    .offer-world__arc--blue{
+      inset:5% auto auto 31%;
+      width:33%;
+      height:26%;
+      border-color:var(--accent2);
+      clip-path:polygon(0 54%, 100% 0, 100% 100%, 0 100%);
+    }
+    .offer-world__arc--red{
+      inset:auto 11% 18% auto;
+      width:28%;
+      height:22%;
+      border-color:rgba(229,58,68,.92);
+      clip-path:polygon(0 0, 100% 36%, 100% 100%, 0 100%);
+    }
+    .offer-world__paddle{
+      width:42%;
+      height:53%;
+    }
+    .offer-world__paddle:before{
+      content:"";
+      position:absolute;
+      inset:0;
+      border-radius:52% 48% 46% 54% / 52% 46% 54% 48%;
+      border:10px solid #09101d;
+      box-shadow:
+        0 0 0 2px rgba(255,255,255,.08),
+        0 34px 50px rgba(0,0,0,.28);
+    }
+    .offer-world__paddle span{
+      position:absolute;
+      left:42%;
+      bottom:-20%;
+      width:18%;
+      height:42%;
+      border-radius:999px;
+      background:#09101d;
+      transform:rotate(7deg);
+      box-shadow:0 0 0 2px rgba(255,255,255,.08);
+    }
+    .offer-world__paddle--red{
+      inset:14% auto auto 4%;
+      rotate:-15deg;
+    }
+    .offer-world__paddle--red:before{
+      background:
+        radial-gradient(circle at 22% 24%, rgba(255,255,255,.94) 0 8%, transparent 9%),
+        linear-gradient(145deg, #ff314f 0%, #e61d3d 76%);
+    }
+    .offer-world__paddle--blue{
+      inset:6% 18% auto auto;
+      rotate:13deg;
+    }
+    .offer-world__paddle--blue:before{
+      background:linear-gradient(145deg, #50c1ff 0%, #1686dc 76%);
+    }
+    .offer-world__paddle--blue span{
+      left:38%;
+      rotate:-9deg;
+    }
+    .offer-world__ball{
+      border-radius:50%;
+      background:radial-gradient(circle at 28% 26%, #fff, #fff 32%, #f6ead6 70%, #dfc08b 100%);
+      box-shadow:0 22px 40px rgba(0,0,0,.26);
+    }
+    .offer-world__ball--main{
+      inset:auto auto 14% 34%;
+      width:16%;
+      aspect-ratio:1/1;
+    }
+    .offer-world__ball--small{
+      inset:30% 18% auto auto;
+      width:10%;
+      aspect-ratio:1/1;
+    }
+    .offer-world__seal{
+      right:7%;
+      bottom:8%;
+      width:min(42%, 236px);
+      padding:22px 24px;
+      border-radius:28px;
+      background:rgba(255,248,240,.09);
+      border:1px solid rgba(255,255,255,.12);
+      box-shadow:0 22px 40px rgba(0,0,0,.2);
+    }
+    .offer-world__seal span,
+    .offer-world__seal strong,
+    .offer-world__seal p{
+      display:block;
+    }
+    .offer-world__seal span{
+      color:rgba(244,236,223,.56);
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      font-size:.76rem;
+    }
+    .offer-world__seal strong{
+      margin-top:10px;
+      font-family:'Oswald', sans-serif;
+      font-size:2rem;
+      font-weight:500;
+      line-height:1;
+      text-transform:uppercase;
+    }
+    .offer-world__seal p{
+      margin:12px 0 0;
+      color:rgba(244,236,223,.72);
+    }
+    .caption{color:var(--muted); line-height:1.55; font-size:15px; margin-top:15px}
+    .footer-note{font-size:13px;color:rgba(244,236,223,.55);line-height:1.5;margin-top:28px}
+    .mobile-menu{display:none}
+    .accent-text{color:var(--accent)}
+    .muted{color:var(--muted)}
+    .no-top{margin-top:0!important}
+    .separator{height:1px;background:rgba(255,255,255,.11);margin:24px 0}
+    @media (max-width:1000px){
+      .nav{display:none}
+      .brand{min-width:auto}
+      .controls{min-width:auto}
+      .hero-layout,.split{grid-template-columns:1fr}
+      .grid.three,.grid.four{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .phone{max-width:430px}
+      .phone-screen{min-height:500px}
+    }
+    @media (max-width:720px){
+      .topbar{padding:12px 14px}
+      .brand span{display:none}
+      .progress-wrap{top:63px}
+      .slide{padding:76px 14px 34px; min-height:auto}
+      #cover.slide{padding:94px 14px 52px}
+      .grid.two,.grid.three,.grid.four{grid-template-columns:1fr}
+      .metric-strip{grid-template-columns:1fr}
+      .card{padding:20px;border-radius:24px}
+      .mini-card{min-height:auto}
+      .step{grid-template-columns:1fr; gap:12px}
+      .table{display:block; overflow-x:auto; white-space:nowrap}
+      .lead{font-size:18px}
+      .sublead{font-size:15px}
+      .back-home{padding:0 12px; font-size:11px}
+      .controls .icon-btn{width:36px;height:36px;border-radius:13px}
+      .brand b{font-size:14px}
+      .offer-world{max-width:350px}
+      .offer-world__seal{
+        width:min(44%, 160px);
+        padding:16px;
+        right:4%;
+        bottom:5%;
+      }
+      .offer-world__seal strong{font-size:1.3rem}
+    }
+    @media print{
+      .topbar,.progress-wrap{display:none}
+      body{background:#040a14}
+      .slide{page-break-after:always; min-height:auto; padding:40px 24px}
+      .card{box-shadow:none}
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#cover" aria-label="К началу презентации">
+      <span class="brand-mark"><img src="../favicon.svg" alt="" width="30" height="30" /></span>
+      <span><b>Сфера × IT‑партнёр</b><span>предложение по запуску</span></span>
+    </a>
+    <nav class="nav" aria-label="Навигация по презентации">
+      <a href="#cover">Старт</a>
+      <a href="#vision">Клуб</a>
+      <a href="#modules">Модули</a>
+      <a href="#roadmap">Этапы</a>
+      <a href="#payment">Оплата</a>
+      <a href="#next">Дальше</a>
+    </nav>
+    <div class="controls" aria-label="Управление слайдами">
+      <a class="back-home" href="../" aria-label="Вернуться на главный сайт клуба">К сайту</a>
+      <button class="icon-btn" id="prevBtn" type="button" aria-label="Предыдущий слайд">‹</button>
+      <button class="icon-btn" id="nextBtn" type="button" aria-label="Следующий слайд">›</button>
+    </div>
+  </header>
+  <div class="progress-wrap"><div class="progress" id="progress"></div></div>
+
+  <main class="deck" id="deck">
+    <section class="slide" id="cover">
+      <div class="slide-inner hero-layout">
+        <div>
+          <div class="kicker">HTML‑презентация предложения</div>
+          <h1>Цифровой запуск клуба настольного тенниса «Сфера»</h1>
+          <p class="lead">Сайт, CRM, онлайн‑запись, оплаты, абонементы, турниры, кабинеты и поддержка — в одном понятном плане внедрения.</p>
+          <p class="sublead">Формат предложения — не “продать всё сразу”, а аккуратно собрать удобную систему под реальный запуск клуба в Казани: без перегруза, с возможностью двигаться по этапам и оплачивать работы гибко.</p>
+          <div class="cta-row">
+            <a class="btn primary" href="#modules">Смотреть состав работ</a>
+            <a class="btn" href="#payment">Варианты оплаты</a>
+          </div>
+          <div class="pill-row">
+            <span class="pill">один HTML‑файл</span>
+            <span class="pill">адаптивно для телефона и ПК</span>
+          </div>
+        </div>
+        <div class="card">
+          <div class="offer-world" aria-hidden="true">
+            <div class="offer-world__halo offer-world__halo--blue"></div>
+            <div class="offer-world__halo offer-world__halo--red"></div>
+            <div class="offer-world__court-plane"></div>
+            <div class="offer-world__court-grid"></div>
+            <div class="offer-world__net"></div>
+            <div class="offer-world__arc offer-world__arc--blue"></div>
+            <div class="offer-world__arc offer-world__arc--red"></div>
+            <div class="offer-world__paddle offer-world__paddle--red"><span></span></div>
+            <div class="offer-world__paddle offer-world__paddle--blue"><span></span></div>
+            <div class="offer-world__ball offer-world__ball--main"></div>
+            <div class="offer-world__ball offer-world__ball--small"></div>
+            <div class="offer-world__seal">
+              <span>Казань</span>
+              <strong>TABLE TENNIS CLUB</strong>
+              <p>Сфера</p>
+            </div>
+          </div>
+          <p class="caption">«Сфера» — новое теннисное сообщество, где будет удобно тренироваться, бронировать время, участвовать в турнирах и расти в любительском рейтинге.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" id="vision">
+      <div class="slide-inner">
+        <div class="kicker">О клубе</div>
+        <h2>«Сфера» — пространство для игры, тренировок и сообщества</h2>
+        <p class="lead">Клуб находится на стадии открытия. Это подходящий момент, чтобы сразу заложить удобную цифровую инфраструктуру: без хаоса в записях, без лишней ручной работы и без “временных табличек”, которые потом сложно заменить.</p>
+        <div class="grid three" style="margin-top:30px">
+          <article class="mini-card">
+            <h3>Для детей и малышей</h3>
+            <p>Беби‑теннис, детские группы по уровню подготовки, понятное расписание для родителей и аккуратный учёт посещений.</p>
+          </article>
+          <article class="mini-card">
+            <h3>Для взрослых</h3>
+            <p>Группы, индивидуальные тренировки, аренда столов, абонементы, напоминания и простая онлайн‑запись.</p>
+          </article>
+          <article class="mini-card">
+            <h3>Для турниров</h3>
+            <p>Заявки, списки участников, оплата участия, результаты, рейтинг и история событий клуба.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" id="goal">
+      <div class="slide-inner split">
+        <div>
+          <div class="kicker">Главная задача</div>
+          <h2>Сделать красиво, понятно и удобно с первого дня</h2>
+          <p class="lead">Наша задача — помочь друзьям запустить клуб так, чтобы сайт, запись, оплата и управление не мешали работе, а поддерживали её.</p>
+        </div>
+        <div class="card">
+          <ul class="check-list">
+            <li><strong>Не перегружать старт.</strong> Сначала собрать важное ядро, затем добавлять модули по необходимости.</li>
+            <li><strong>Снизить ручную работу.</strong> Записи, абонементы, уведомления и оплаты должны быть максимально прозрачными.</li>
+            <li><strong>Сделать современный образ клуба.</strong> Сайт и интерфейсы должны выглядеть аккуратно, спортивно и технологично.</li>
+            <li><strong>Оставить гибкость.</strong> Стоимость, состав работ и схема оплаты обсуждаются после выбора нужного объёма.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" id="approach">
+      <div class="slide-inner">
+        <div class="kicker">Подход</div>
+        <h2>Не одна “большая разработка”, а набор отдельных работ</h2>
+        <p class="lead">Каждый блок можно подключать отдельно. Это позволяет начать с базового запуска, а затем развивать систему по мере роста клуба.</p>
+        <div class="metric-strip">
+          <div class="metric"><b>1</b><span>сайт и витрина клуба для первых заявок</span></div>
+          <div class="metric"><b>2</b><span>CRM и расписание для порядка внутри клуба</span></div>
+          <div class="metric"><b>3</b><span>оплаты, кабинеты, турниры, рейтинг и аналитика</span></div>
+        </div>
+        <div class="feature-cloud">
+          <span>сайт</span><span>онлайн‑запись</span><span>CRM</span><span>абонементы</span><span>оплаты</span><span>турниры</span><span>личный кабинет</span><span>кабинет тренера</span><span>админ‑панель</span><span>уведомления</span><span>аналитика</span><span>интеграции</span><span>поддержка</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" id="modules">
+      <div class="slide-inner">
+        <div class="kicker">Состав работ</div>
+        <h2>Что можно сделать для «Сферы»</h2>
+        <p class="lead">Ниже — полный список направлений. После обсуждения выбираем обязательное, полезное и то, что можно отложить на следующий этап.</p>
+        <div class="grid two" style="margin-top:30px">
+          <div class="module-list no-top">
+            <div class="module"><span class="num">01</span><div><h3>Сайт клуба</h3><p>Стильная адаптивная витрина: направления, тренеры, цены, расписание, турниры, контакты, форма заявки и онлайн‑запись.</p></div></div>
+            <div class="module"><span class="num">02</span><div><h3>Онлайн‑запись</h3><p>Выбор услуги, даты, времени, тренера, стола или группы. Свободные слоты, ограничения по местам и подтверждения.</p></div></div>
+            <div class="module"><span class="num">03</span><div><h3>CRM и расписание</h3><p>Клиенты, тренеры, столы, занятия, абонементы, оплаты, история посещений и рабочий календарь клуба.</p></div></div>
+            <div class="module"><span class="num">04</span><div><h3>Онлайн‑оплата</h3><p>Оплата разовых занятий, абонементов, турниров и сертификатов. Возможность подключения эквайринга, СБП, чеков и кассы.</p></div></div>
+          </div>
+          <div class="module-list no-top">
+            <div class="module"><span class="num">05</span><div><h3>Кабинеты</h3><p>Личный кабинет клиента, кабинет тренера и админ‑панель для управления клубом без лишних таблиц.</p></div></div>
+            <div class="module"><span class="num">06</span><div><h3>Турниры и рейтинг</h3><p>Страницы турниров, заявки, списки участников, результаты и интеграция с системой любительского рейтинга.</p></div></div>
+            <div class="module"><span class="num">07</span><div><h3>Уведомления</h3><p>Напоминания о занятиях, оплатах, окончании абонемента, переносах, турнирах и новостях клуба.</p></div></div>
+            <div class="module"><span class="num">08</span><div><h3>Аналитика и поддержка</h3><p>Загрузка столов, посещаемость, продажи абонементов, отчёты, техническое сопровождение и развитие после запуска.</p></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" id="site">
+      <div class="slide-inner split">
+        <div>
+          <div class="kicker">Сайт</div>
+          <h2>Современная витрина клуба</h2>
+          <p class="lead">Сайт должен быстро объяснять, что такое «Сфера», для кого клуб, чем он отличается и как записаться.</p>
+          <p class="sublead">Сайт можно сделать как аккуратный лендинг на старте, а затем расширить до полноценной платформы с расписанием, кабинетами и оплатой.</p>
+        </div>
+        <div class="card">
+          <ul class="check-list">
+            <li><strong>Главный экран:</strong> сильный оффер, фото/визуал, кнопка записи.</li>
+            <li><strong>Направления:</strong> беби‑теннис, детские группы, взрослые группы, индивидуальные тренировки, аренда столов.</li>
+            <li><strong>Тренеры:</strong> карточки специалистов, опыт, расписание, возможность записи.</li>
+            <li><strong>Цены и абонементы:</strong> понятные тарифы без перегруза.</li>
+            <li><strong>Турниры:</strong> анонсы, условия участия, заявки и результаты.</li>
+            <li><strong>Контакты:</strong> карта, адрес, соцсети, быстрые кнопки связи.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" id="booking">
+      <div class="slide-inner hero-layout">
+        <div>
+          <div class="kicker">Онлайн‑запись</div>
+          <h2>Клиент выбирает удобное время без переписки</h2>
+          <p class="lead">Запись можно сделать простой: выбрать формат занятия, дату, время и подтвердить бронь. Администратор при этом видит расписание и загрузку в одном месте.</p>
+          <div class="grid two" style="margin-top:28px">
+            <article class="mini-card"><h3>Для клиента</h3><p>Понятный выбор: тренировка, аренда стола, турнир, группа, тренер, свободные слоты и напоминания.</p></article>
+            <article class="mini-card"><h3>Для клуба</h3><p>Меньше звонков и ручных сообщений, меньше накладок, больше порядка в расписании.</p></article>
+          </div>
+        </div>
+        <div class="phone" aria-label="Макет мобильной онлайн‑записи">
+          <div class="phone-screen">
+            <div class="phone-top"><span>09:41</span><span>Казань</span></div>
+            <div class="app-logo"><span class="dot-logo"><img src="../favicon.svg" alt="" width="28" height="28" /></span>Сфера</div>
+            <p class="caption">Запись на тренировку</p>
+            <div class="slot active"><div><b>Сегодня · 18:00</b><br><span>Группа для взрослых</span></div><span class="tiny-btn">3 места</span></div>
+            <div class="slot"><div><b>Завтра · 10:00</b><br><span>Аренда стола</span></div><span class="tiny-btn">свободно</span></div>
+            <div class="slot"><div><b>Завтра · 16:30</b><br><span>Детская группа</span></div><span class="tiny-btn">2 места</span></div>
+            <div class="separator"></div>
+            <div class="mock-panel">
+              <div><p class="caption no-top">Загрузка столов</p><div class="mock-line"><i style="width:78%"></i></div></div>
+              <div><p class="caption no-top">Свободные слоты</p><div class="mock-line"><i style="width:44%"></i></div></div>
+              <div><p class="caption no-top">Группы на сегодня</p><div class="mock-line"><i style="width:62%"></i></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" id="crm">
+      <div class="slide-inner">
+        <div class="kicker">CRM</div>
+        <h2>Учёт записей, клиентов, абонементов и оплат</h2>
+        <p class="lead">CRM нужна не ради “сложной системы”, а чтобы у клуба всегда был ответ: кто записан, кто оплатил, сколько занятий осталось, где свободное время и какие клиенты требуют внимания.</p>
+        <div class="grid four" style="margin-top:30px">
+          <article class="mini-card"><h3>Клиенты</h3><p>Карточка клиента, контакты, уровень игры, дети/родители, комментарии, история посещений.</p></article>
+          <article class="mini-card"><h3>Расписание</h3><p>Столы, тренеры, группы, индивидуальные занятия, аренда и турниры в едином календаре.</p></article>
+          <article class="mini-card"><h3>Абонементы</h3><p>Остаток занятий, срок действия, заморозка, автоматическое списание посещений и напоминания.</p></article>
+          <article class="mini-card"><h3>Оплаты</h3><p>История платежей, неоплаченные записи, возвраты, статусы и отчёты для администратора.</p></article>
+        </div>
+        <table class="table" aria-label="Модули CRM">
+          <thead><tr><th>Блок</th><th>Что решает</th><th>Когда нужен</th></tr></thead>
+          <tbody>
+            <tr><td>База клиентов</td><td>Все контакты, история занятий и комментарии хранятся в одном месте.</td><td>С первого этапа.</td></tr>
+            <tr><td>Расписание</td><td>Снижает риск пересечений по столам, тренерам и группам.</td><td>С первого этапа.</td></tr>
+            <tr><td>Абонементы</td><td>Убирает ручной подсчёт занятий и сроков действия.</td><td>После утверждения тарифов.</td></tr>
+            <tr><td>Отчёты</td><td>Показывает загрузку, посещаемость и финансовые статусы.</td><td>После накопления данных.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="slide" id="payments">
+      <div class="slide-inner split">
+        <div>
+          <div class="kicker">Оплаты и абонементы</div>
+          <h2>Оплата там же, где клиент записывается</h2>
+          <p class="lead">Клиенту не нужно писать администратору, уточнять реквизиты и отправлять скриншот. Система может фиксировать оплату автоматически.</p>
+        </div>
+        <div class="card">
+          <ul class="check-list">
+            <li><strong>Разовые занятия:</strong> тренировки, аренда стола, пробные занятия.</li>
+            <li><strong>Абонементы:</strong> 4/8/12 занятий, месячные, детские, взрослые, индивидуальные.</li>
+            <li><strong>Турниры:</strong> заявка и оплата участия онлайн.</li>
+            <li><strong>СБП / карта / QR:</strong> варианты подключения обсуждаются по выбранному платёжному провайдеру.</li>
+            <li><strong>Чеки и касса:</strong> можно предусмотреть интеграцию с онлайн‑кассой и юридическими документами.</li>
+            <li><strong>Промокоды и скидки:</strong> полезно для открытия, пробных тренировок и турниров.</li>
+          </ul>
+          <p class="footer-note">Юридические тексты, оферта, политика обработки данных и кассовая схема согласуются отдельно с владельцами клуба, бухгалтером или юристом.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" id="accounts">
+      <div class="slide-inner">
+        <div class="kicker">Кабинеты</div>
+        <h2>Отдельные интерфейсы для клиента, тренера и администратора</h2>
+        <p class="lead">Каждая роль видит только то, что ей нужно. Это снижает путаницу и делает работу клуба проще.</p>
+        <div class="grid three" style="margin-top:30px">
+          <article class="card price-card">
+            <span class="tag">Клиент</span>
+            <h3>Личный кабинет</h3>
+            <ul class="check-list">
+              <li>будущие записи;</li>
+              <li>история посещений;</li>
+              <li>остаток абонемента;</li>
+              <li>покупка занятий;</li>
+              <li>отмена или перенос по правилам клуба.</li>
+            </ul>
+          </article>
+          <article class="card price-card">
+            <span class="tag">Тренер</span>
+            <h3>Рабочий кабинет</h3>
+            <ul class="check-list">
+              <li>личное расписание;</li>
+              <li>список учеников;</li>
+              <li>отметка посещаемости;</li>
+              <li>комментарии по занятиям;</li>
+              <li>уведомления о новых записях.</li>
+            </ul>
+          </article>
+          <article class="card price-card">
+            <span class="tag">Администратор</span>
+            <h3>Панель управления</h3>
+            <ul class="check-list">
+              <li>записи и расписание;</li>
+              <li>клиенты и абонементы;</li>
+              <li>оплаты и статусы;</li>
+              <li>турниры и группы;</li>
+              <li>права доступа и отчёты.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" id="tournaments">
+      <div class="slide-inner split">
+        <div>
+          <div class="kicker">Турниры и рейтинг</div>
+          <h2>Клуб как сообщество, а не просто зал со столами</h2>
+          <p class="lead">Для «Сферы» важно заложить механику турниров и рейтинга: это удерживает игроков, создаёт регулярные события и помогает формировать активное комьюнити.</p>
+        </div>
+        <div class="card">
+          <ul class="check-list">
+            <li><strong>Страница турнира:</strong> дата, формат, уровень, взнос, количество мест, правила.</li>
+            <li><strong>Онлайн‑заявка:</strong> регистрация участника, контактные данные, статус оплаты.</li>
+            <li><strong>Участники:</strong> список, лимиты, лист ожидания, деление по уровню.</li>
+            <li><strong>Результаты:</strong> публикация итогов и история турниров.</li>
+            <li><strong>Рейтинг любителей:</strong> интеграция с внешней системой рейтинга или собственный рейтинг клуба.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" id="notifications">
+      <div class="slide-inner">
+        <div class="kicker">Коммуникации</div>
+        <h2>Уведомления вместо ручных напоминаний</h2>
+        <p class="lead">Система может помогать клубу говорить с клиентами вовремя: перед занятием, после оплаты, при окончании абонемента, при анонсе турнира.</p>
+        <div class="grid four" style="margin-top:30px">
+          <article class="mini-card"><h3>Telegram</h3><p>Уведомления, бот для записи, быстрые ответы, подтверждения и новости клуба.</p></article>
+          <article class="mini-card"><h3>WhatsApp</h3><p>Можно подключать через официальные или внешние сервисы, если канал нужен клиентам.</p></article>
+          <article class="mini-card"><h3>Email</h3><p>Чеки, подтверждения, новости, турниры, сервисные сообщения.</p></article>
+          <article class="mini-card"><h3>SMS</h3><p>Короткие напоминания, если нужен более надёжный канал для важных сообщений.</p></article>
+        </div>
+        <div class="note">На старте можно не подключать все каналы сразу. Достаточно выбрать 1–2 основных, а остальные оставить как будущие модули.</div>
+      </div>
+    </section>
+
+    <section class="slide" id="analytics">
+      <div class="slide-inner hero-layout">
+        <div>
+          <div class="kicker">Аналитика</div>
+          <h2>Владелец видит, как живёт клуб</h2>
+          <p class="lead">Отчёты не должны быть сложными. Нужна понятная картина: загрузка столов, посещаемость, продажи абонементов, новые клиенты, отмены и неоплаченные записи.</p>
+          <div class="feature-cloud">
+            <span>загрузка по часам</span><span>продажи абонементов</span><span>посещаемость</span><span>новые клиенты</span><span>отмены</span><span>неоплаченные записи</span><span>выгрузка в Excel</span><span>отчёт за месяц</span>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Пример панели руководителя</h3>
+          <p class="caption">Не финальный дизайн, а направление: простая визуальная картина без перегруза.</p>
+          <div class="mock-panel">
+            <div><p class="caption no-top">Загрузка столов · вечер</p><div class="mock-line"><i style="width:86%"></i></div></div>
+            <div><p class="caption no-top">Группы · заполнение</p><div class="mock-line"><i style="width:69%"></i></div></div>
+            <div><p class="caption no-top">Абонементы · активные</p><div class="mock-line"><i style="width:57%"></i></div></div>
+            <div><p class="caption no-top">Оплаты · закрыто</p><div class="mock-line"><i style="width:92%"></i></div></div>
+          </div>
+          <div class="metric-strip">
+            <div class="metric"><b>12</b><span>записей сегодня</span></div>
+            <div class="metric"><b>4</b><span>свободных слота</span></div>
+            <div class="metric"><b>2</b><span>турнира в плане</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" id="integrations">
+      <div class="slide-inner">
+        <div class="kicker">Интеграции и основа</div>
+        <h2>Система должна быть готова к росту</h2>
+        <p class="lead">Даже если часть функций не нужна на старте, архитектуру лучше продумать заранее: чтобы потом не переделывать всё с нуля.</p>
+        <div class="grid three" style="margin-top:30px">
+          <article class="mini-card"><h3>Платежи</h3><p>Эквайринг, СБП, QR, онлайн‑касса, статусы платежей и возвраты — по выбранной схеме.</p></article>
+          <article class="mini-card"><h3>Календари</h3><p>Google Calendar / Apple Calendar для записей, тренеров и напоминаний.</p></article>
+          <article class="mini-card"><h3>Таблицы и отчёты</h3><p>Экспорт в Excel или Google Sheets для управленческого учёта.</p></article>
+          <article class="mini-card"><h3>Метрика</h3><p>Яндекс Метрика, Google Analytics, события заявок и запись конверсий.</p></article>
+          <article class="mini-card"><h3>Коммуникации</h3><p>Telegram, WhatsApp, email, SMS и сервисные уведомления.</p></article>
+          <article class="mini-card"><h3>Правовая база</h3><p>Согласие на обработку данных, политика, оферта, SSL, резервные копии и права доступа.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" id="roadmap">
+      <div class="slide-inner">
+        <div class="kicker">Этапный запуск</div>
+        <h2>Предлагаемый порядок внедрения</h2>
+        <p class="lead">Сроки пока не фиксируем. Логика такая: сначала запуск полезного ядра, затем расширение до полноценной системы.</p>
+        <div class="timeline">
+          <div class="step"><span class="step-index">01</span><div><h3>Аудит и карта процессов</h3><p>Фиксируем, как клуб будет работать: направления, тренеры, столы, группы, абонементы, правила отмены, оплаты и роли сотрудников.</p></div></div>
+          <div class="step"><span class="step-index">02</span><div><h3>Прототип и дизайн</h3><p>Собираем структуру сайта, основные сценарии записи, макеты экранов CRM и общий визуальный стиль «Сферы».</p></div></div>
+          <div class="step"><span class="step-index">03</span><div><h3>Сайт и базовая запись</h3><p>Запускаем адаптивный сайт, формы заявок, основные страницы и простую онлайн‑запись без лишней сложности.</p></div></div>
+          <div class="step"><span class="step-index">04</span><div><h3>CRM, расписание и абонементы</h3><p>Добавляем внутреннее управление: клиенты, занятия, тренеры, столы, группы, статусы и остатки абонементов.</p></div></div>
+          <div class="step"><span class="step-index">05</span><div><h3>Оплаты, кабинеты, турниры и аналитика</h3><p>Подключаем оплату, личные кабинеты, турниры, рейтинги, уведомления, отчёты и интеграции по мере необходимости.</p></div></div>
+          <div class="step"><span class="step-index">06</span><div><h3>Тестирование, обучение и поддержка</h3><p>Проверяем сценарии, обучаем администраторов и тренеров, сопровождаем запуск и развиваем систему дальше.</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" id="payment">
+      <div class="slide-inner">
+        <div class="kicker">Оплата работ</div>
+        <h2>Гибкая схема без большой нагрузки на стартовый бюджет</h2>
+        <p class="lead">Так как состав работ будет уточняться, стоимость можно считать после выбора модулей. Оплату можно разделить по этапам или зафиксировать рассрочку договором.</p>
+        <div class="grid three" style="margin-top:30px">
+          <article class="card price-card">
+            <span class="tag">Вариант 1</span>
+            <h3>Этапная оплата</h3>
+            <div class="big-percent">30/40/30</div>
+            <p class="caption">30% — старт работ, 40% — после дизайна/разработки ключевого блока, 30% — после запуска согласованного этапа.</p>
+          </article>
+          <article class="card price-card">
+            <span class="tag">Вариант 2</span>
+            <h3>Рассрочка</h3>
+            <div class="big-percent">по договору</div>
+            <p class="caption">Можно разбить оплату на несколько частей. График, сумма, доступы и условия фиксируются письменно.</p>
+          </article>
+          <article class="card price-card">
+            <span class="tag">Вариант 3</span>
+            <h3>Разработка + подписка</h3>
+            <div class="big-percent">поддержка</div>
+            <p class="caption">Часть стоимости разработки можно снизить, если после запуска клуб выбирает ежемесячное техническое сопровождение.</p>
+          </article>
+        </div>
+        <div class="note">Финальная сумма не указывается до обсуждения объёма. Сначала выбираем, что действительно нужно на старте, а что можно оставить на развитие.</div>
+      </div>
+    </section>
+
+    <section class="slide" id="support">
+      <div class="slide-inner split">
+        <div>
+          <div class="kicker">Долгосрочное партнёрство</div>
+          <h2>После запуска система не остаётся без внимания</h2>
+          <p class="lead">Формат сотрудничества можно построить как постоянную IT‑поддержку клуба: развитие, исправления, новые модули, помощь администраторам и улучшения по фактической работе.</p>
+        </div>
+        <div class="card">
+          <ul class="check-list">
+            <li><strong>Техническая поддержка:</strong> исправления, обновления, контроль работоспособности.</li>
+            <li><strong>Развитие продукта:</strong> новые функции по мере роста клуба.</li>
+            <li><strong>Помощь персоналу:</strong> обучение администраторов и тренеров.</li>
+            <li><strong>Контент и сайт:</strong> обновление информации, турниров, цен, тренеров и новостей.</li>
+            <li><strong>Аналитика:</strong> улучшение отчётов после накопления данных.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" id="principles">
+      <div class="slide-inner">
+        <div class="kicker">Принципы</div>
+        <h2>Что важно зафиксировать сразу</h2>
+        <p class="lead">Мы не обещаем лишнего и не фиксируем то, что пока не согласовано. Предложение описывает возможности и направления работ.</p>
+        <div class="grid two" style="margin-top:30px">
+          <article class="mini-card">
+            <h3>Без гарантий “по выручке”</h3>
+            <p>Система помогает сделать сервис удобнее и управляемее, но финансовые результаты зависят от операционной работы клуба, спроса, маркетинга и команды.</p>
+          </article>
+          <article class="mini-card">
+            <h3>Без лишней сложности на старте</h3>
+            <p>Не обязательно запускать всё сразу. Лучше выбрать полезное ядро и добавлять модули, когда они действительно нужны.</p>
+          </article>
+          <article class="mini-card">
+            <h3>Согласование каждого этапа</h3>
+            <p>Перед разработкой фиксируем состав работ, правила, роли, интеграции, стоимость и порядок оплаты.</p>
+          </article>
+          <article class="mini-card">
+            <h3>Один понятный партнёр</h3>
+            <p>Сайт, CRM, записи, оплаты, уведомления и развитие системы собираются в единую логику, а не в набор разрозненных сервисов.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" id="needed">
+      <div class="slide-inner split">
+        <div>
+          <div class="kicker">Что нужно от клуба</div>
+          <h2>Минимум данных для первого расчёта</h2>
+          <p class="lead">Чтобы перейти от идеи к конкретному объёму, достаточно собрать базовую информацию. Остальное можно уточнять по ходу.</p>
+        </div>
+        <div class="card">
+          <ul class="check-list">
+            <li>количество столов и примерный график работы клуба;</li>
+            <li>форматы занятий: группы, индивидуальные, аренда, турниры;</li>
+            <li>планируемые тарифы и абонементы;</li>
+            <li>список тренеров и роли сотрудников;</li>
+            <li>правила отмены, переноса и оплаты занятий;</li>
+            <li>нужные каналы уведомлений;</li>
+            <li>логотип, фото клуба, адрес и контакты после готовности;</li>
+            <li>приоритет: что запускаем первым, а что переносим на следующие этапы.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" id="next">
+      <div class="slide-inner hero-layout">
+        <div>
+          <div class="kicker">Следующий шаг</div>
+          <h2>Обсудить MVP и выбрать первый этап</h2>
+          <p class="lead">Оптимальный старт — определить минимальный полезный набор: сайт, базовая запись, CRM‑ядро и правила учёта. После этого можно оценить стоимость, разбить оплату и двигаться по этапам.</p>
+          <div class="cta-row">
+            <a class="btn primary" href="#roadmap">Вернуться к этапам</a>
+            <a class="btn" href="#modules">К списку модулей</a>
+          </div>
+          <p class="footer-note">Контакты и логотип исполнителя можно добавить в этот блок позже. Сейчас презентация подготовлена как нейтральное предложение IT‑партнёра для клуба «Сфера».</p>
+        </div>
+        <div class="card">
+          <h3>Рекомендуемая первая версия</h3>
+          <div class="module-list">
+            <div class="module"><span class="num">1</span><div><h3>Сайт</h3><p>Главная, направления, тренеры, цены, турниры, контакты, форма заявки.</p></div></div>
+            <div class="module"><span class="num">2</span><div><h3>Базовая запись</h3><p>Простая запись на занятие или аренду с уведомлением администратора.</p></div></div>
+            <div class="module"><span class="num">3</span><div><h3>CRM‑ядро</h3><p>Клиенты, расписание, тренеры, столы, абонементы и статусы оплат.</p></div></div>
+            <div class="module"><span class="num">4</span><div><h3>Дальше</h3><p>Оплаты, кабинеты, турниры, рейтинг, аналитика и интеграции.</p></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const slides = Array.from(document.querySelectorAll('.slide'));
+    const navLinks = Array.from(document.querySelectorAll('.nav a'));
+    const progress = document.getElementById('progress');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+
+    function currentIndex(){
+      const center = window.scrollY + window.innerHeight * 0.42;
+      let index = 0;
+      slides.forEach((slide, i) => {
+        if (slide.offsetTop <= center) index = i;
+      });
+      return index;
+    }
+
+    function updateUI(){
+      const idx = currentIndex();
+      const percent = slides.length <= 1 ? 100 : (idx / (slides.length - 1)) * 100;
+      progress.style.width = percent + '%';
+      navLinks.forEach(link => {
+        const target = document.querySelector(link.getAttribute('href'));
+        link.classList.toggle('active', target === slides[idx]);
+      });
+    }
+
+    function goTo(delta){
+      const idx = currentIndex();
+      const next = Math.max(0, Math.min(slides.length - 1, idx + delta));
+      slides[next].scrollIntoView({behavior:'smooth', block:'start'});
+    }
+
+    prevBtn.addEventListener('click', () => goTo(-1));
+    nextBtn.addEventListener('click', () => goTo(1));
+    window.addEventListener('scroll', updateUI, {passive:true});
+    window.addEventListener('resize', updateUI);
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === 'PageDown') goTo(1);
+      if (e.key === 'ArrowLeft' || e.key === 'PageUp') goTo(-1);
+    });
+    updateUI();
+  </script>
+</body>
+</html>
